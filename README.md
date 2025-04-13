@@ -4,12 +4,11 @@
 
 - [Giới thiệu](#giới-thiệu)
 - [Cài đặt](#cài-đặt)
-- [Sử dụng](#sử-dụng)
 - [Cấu trúc thư mục](#cấu-trúc-thư-mục)
-- [Tác giả](#tác-giả)
 - [Phân tích dữ liệu](#phân-tích-dữ-liệu)
 - [Kết quả phân cụm K-means](#kết-quả-phân-cụm-k-means)
-
+- [Sử dụng](#sử-dụng)
+-  [Tác giả](#tác-giả)
 ## Giới thiệu
 
 Dự án này sử dụng thuật toán K-means để phân cụm dữ liệu CA Housing, bao gồm các đặc trưng như `longitude`, `latitude`, `housing_median_age`, `total_rooms`, `total_bedrooms`, `population`, `households`, `median_income`, `median_house_value`, và `ocean_proximity`. Mục tiêu của dự án là khám phá dữ liệu và rút ra thông tin hữu ích từ các cụm được phân tích, đồng thời xây dựng mô hình dự đoán giá nhà, thu nhập trung vị và tuổi trung vị của các ngôi nhà.
@@ -27,7 +26,8 @@ Dự án này sử dụng thuật toán K-means để phân cụm dữ liệu CA
 Các đặc trưng trong bộ dữ liệu:
 longitude: Kinh độ của khu vực.
 
-```latitude: Vĩ độ của khu vực.
+```
+latitude: Vĩ độ của khu vực.
 
 housing_median_age: Tuổi trung vị của các ngôi nhà trong một block.
 
@@ -132,3 +132,8 @@ K-means-Clustering-CA-Housing/
 - Các đoạn mã được cải thiện, dễ đọc và có định dạng rõ ràng.
 - Các bước thực hiện và kết quả phân tích đã được mô tả chi tiết.
 - Phần **Kết quả phân cụm K-means** đã được trình bày chi tiết, bao gồm phương pháp Elbow, các kết quả phân cụm và trực quan hóa kết quả.
+## Tác giả 
+Dự án này được thực hiện bởi [CuongDAol](https://github.com/CuongDAol).
+
+- **Email**: buipg0801@gmail.com
+Cảm ơn bạn đã xem qua dự án này! Nếu bạn có bất kỳ câu hỏi nào hoặc muốn hợp tác, đừng ngần ngại liên hệ với tôi.
