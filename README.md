@@ -27,7 +27,7 @@ Dự án này sử dụng thuật toán K-means để phân cụm dữ liệu CA
 Các đặc trưng trong bộ dữ liệu:
 longitude: Kinh độ của khu vực.
 
-latitude: Vĩ độ của khu vực.
+```latitude: Vĩ độ của khu vực.
 
 housing_median_age: Tuổi trung vị của các ngôi nhà trong một block.
 
@@ -44,7 +44,7 @@ median_income: Thu nhập trung vị của các hộ gia đình trong một bloc
 median_house_value: Giá nhà trung vị trong một block.
 
 ocean_proximity: Khoảng cách tới biển (hạng mục).
-
+```
 Quan sát dữ liệu:
 Dữ liệu đầy đủ: Hầu hết các cột dữ liệu đều có giá trị đầy đủ, trừ cột total_bedrooms có 207 giá trị bị khuyết. Bạn có thể điền giá trị bị thiếu này bằng cách sử dụng giá trị trung bình, trung vị hoặc dùng mô hình KNN để dự đoán giá trị thiếu.
 
@@ -55,6 +55,7 @@ Mức độ phân phối dữ liệu: Một số cột như total_rooms, total_b
 Kết quả phân cụm K-means
 Phương pháp Elbow
 Dựa trên phương pháp Elbow, chúng ta xác định rằng số cụm tối ưu là 5 (K=5), vì sau đó độ thay đổi của WCSS (within-cluster sum of squares) không còn rõ ràng nữa.
+```bash
 from sklearn.cluster import KMeans
 wcss_list=[]
 # thu với k=1 đến 10
@@ -67,8 +68,11 @@ plt.title("The Elbow Method Graph")
 plt.xlabel("Number of Clusters (k)")
 plt.ylabel("WCSS")
 plt.show()
+```
+```bash
 # Trực quan hóa kết quả phân cụm
 Sau khi phân cụm, chúng ta có thể trực quan hóa kết quả với các cụm được phân biệt bằng màu sắc khác nhau:
+```bash
 plt.figure(figsize=(12,8), dpi=80)
 colors = sns.color_palette("husl", 5)
 for i in range(5):
@@ -81,6 +85,7 @@ plt.xlabel("Median Income")
 plt.ylabel("Population")
 plt.legend()
 plt.show()
+```
 Nhận xét về các cụm:
 Cụm 1: Thu nhập thấp, mật độ dân số thấp.
 
@@ -91,8 +96,10 @@ Cụm 3: Thu nhập thấp và trung bình, mật độ dân số trung bình.
 Cụm 4: Thu nhập thấp và trung bình, mật độ dân số cao.
 
 Cụm 5: Thu nhập cao, mật độ dân số thấp.
+
 # Trực quan hóa các cụm trên bản đồ:
 Mỗi cụm được phân bố trên bản đồ với kích thước điểm dữ liệu đại diện cho số dân (population) và màu sắc thể hiện giá trị nhà (median_house_value).
+```bash
 df["cluster"] = y_predict + 1
 tmp_df = df.sort_values(by="cluster")
 plt.figure(figsize=(30,8), dpi=80)
@@ -104,6 +111,7 @@ for i in range(1, 6):
     sns.scatterplot(data=tmp_df[tmp_df["cluster"] == i], x='longitude', y='latitude', color=colors[i-1], s=10, linewidth=0)
     plt.title(f'Cluster {i}')
     plt.imshow(california_img, extent=[-126.25, -113.85, 32.25, 42.15], alpha=1)
+```
 Dữ liệu phân cụm giúp chúng ta nhận diện các khu vực có đặc điểm thu nhập và mật độ dân cư tương tự nhau, từ đó có thể đưa ra các chiến lược phù hợp trong nghiên cứu về giá nhà và phân tích thị trường.
 
 
@@ -117,4 +125,10 @@ K-means-Clustering-CA-Housing/
 ├── du doan gia nha.ipynb      # Mã nguồn Python thực hiện phân cụm và trực quan hóa.
 ├── README.md                  # Tệp này.
 └──main.ipynb                  # mã phụ
+```
 
+### Các điểm nổi bật trong tệp README:
+
+- Các đoạn mã được cải thiện, dễ đọc và có định dạng rõ ràng.
+- Các bước thực hiện và kết quả phân tích đã được mô tả chi tiết.
+- Phần **Kết quả phân cụm K-means** đã được trình bày chi tiết, bao gồm phương pháp Elbow, các kết quả phân cụm và trực quan hóa kết quả.
